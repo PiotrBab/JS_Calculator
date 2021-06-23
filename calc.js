@@ -39,6 +39,13 @@ function sum(arr){
             math.splice(math.indexOf('-')-1,3,calc);
         }
 
+        while (math.indexOf('%') > 0 ){
+            let calc = (math[math.indexOf('%')-1]/100) * math[math.indexOf('&')+1]
+            math.splice(math.indexOf('%')-1,3,calc);
+        }
+
+
+
     return Number(math[0].toFixed(4));
 }
 
@@ -79,6 +86,16 @@ function push(a){
             case '/':
                 arithmeticChain.push(storedNumber);
                 arithmeticChain.push('/')
+    
+                storeDisplayNum = '';
+                storedNumber = 0;
+                document.getElementById("current").innerHTML= '';
+                document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                break;
+
+            case '%':
+                arithmeticChain.push(storedNumber);
+                arithmeticChain.push('%')
     
                 storeDisplayNum = '';
                 storedNumber = 0;
