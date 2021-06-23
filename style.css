@@ -88,15 +88,15 @@ main{
 @media (max-width: 750px){
     #current{
         font-size: 20px;
-        height: 30px;
-        line-height: 30px;
+        height: 35px;
+        line-height: 35px;
         margin-right: 11px;
     }
 
     #chain{
         font-size: 8px;
-        height: 15px;
-        line-height: 15px;
+        height: 20px;
+        line-height: 20px;
         margin-right: 11px;
     }
 
