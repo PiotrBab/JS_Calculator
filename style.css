@@ -1,0 +1,124 @@
+*{
+    margin: 0 auto;
+}
+
+body{
+    background: rgb(95,63,127);
+    background: linear-gradient(100deg, rgba(95,63,127,1) 0%, rgba(22,56,107,1) 50%, rgba(95,63,127,1) 100%);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---Display--- */
+
+.display{
+    display: grid;
+    grid-template-columns: repeat(1,40vh);
+    grid-template-rows: repeat(2,8vh);
+    margin-bottom: 15px;
+    background: rgb(27,26,28);
+    background: linear-gradient(100deg, rgba(38, 26, 51, 0.7) 0%, rgba(18, 40, 77, 0.7) 50%, rgba(38, 26, 51, 0.7) 100%);
+    box-shadow: 5px 5px 15px 5px rgb(147, 97, 201), -10px -7px 27px 1px rgb(49, 107, 207), 5px 5px 15px 5px rgb(151, 102, 204), 5px 5px 15px 5px rgba(0,0,0,0);
+    border-radius: 20px 20px 5px 5px;
+    color: white;
+    align-items: center;
+}
+
+#chain{
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.521);
+    height: 40px;
+    line-height: 40px;
+    margin-right: 20px;
+    font-weight: 800;
+}
+
+#current{
+    font-size: 45px;
+    height: 70px;
+    line-height: 70px;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+.settings{
+    width: 90%;
+    display: grid;
+    justify-content: flex-end;
+    align-self: center;
+    border: 5px solid rgba(13, 30, 58, 0);
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 20px 4px rgb(13, 27, 53);
+    background-color: rgba(13, 27, 53, 0.096);
+}
+
+
+@media (max-width: 750px){
+    #current{
+        font-size: 20px;
+        height: 30px;
+        line-height: 30px;
+        margin-right: 11px;
+    }
+
+    #chain{
+        font-size: 8px;
+        height: 15px;
+        line-height: 15px;
+        margin-right: 11px;
+    }
+
+    .settings{
+        margin-bottom: 3px;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+#core{
+    display: grid;
+    width: 40vh;
+    grid-template-columns: repeat(4,auto);
+    grid-template-rows: repeat(5,10vh);
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    border-radius: 5px 5px 20px 20px;
+    background: rgb(27,26,28);
+    background: linear-gradient(100deg, rgba(38, 26, 51, 0.7) 0%, rgba(18, 40, 77, 0.7) 50%, rgba(38, 26, 51, 0.7) 100%);
+    box-shadow: 5px 5px 15px 5px rgb(147, 97, 201), -10px -7px 27px 1px rgb(49, 107, 207), 5px 5px 15px 5px rgb(151, 102, 204), 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold; 
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.btn button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+    width: 95%;
+    height: 95%;
+}
+
