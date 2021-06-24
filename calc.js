@@ -9,11 +9,15 @@ function onOff(){
     document.getElementById("on-off").style.display = "none";
 }
 
-
+/*Function getNum collects user input and displays it in the calculator. Additionally, the entered text
+is converted into numbers and assigned to the storedNumber variable.*/
 function getNum(a){
-    if(storeDisplayNum.length < 14){
+    if(storeDisplayNum.length < 14){ /*This if() does not allow you to enter a digit longer than 14 characters.*/
         if(arithmeticChain.indexOf('%') > 0 
         && arithmeticChain.length > 2){
+            /*If we want to count the percentage of a number, you can only give two digits,
+            the first is the percentage and the second is the number (e.g. 2%5=0.1).This if() does not allow 
+            you to enter more than two digits into our arithmetic operation.*/
         }else{
             storeDisplayNum += a;
             document.getElementById("current").innerHTML= storeDisplayNum;
@@ -21,7 +25,9 @@ function getNum(a){
     }
     storedNumber = Number(storeDisplayNum);
 }
+/*-----------------------------------------------------------------------------------------------------*/
 
+/*Function sum allows you to perform calculations entered by the user.*/
 function sum(arr){
     let math = [...arr];
 
@@ -51,12 +57,16 @@ function sum(arr){
         }
     return Number(math[0].toFixed(4));
 }
+/*-----------------------------------------------------------------------------------------------------*/
+
 
 function push(a){
     if(storedNumber == undefined ){
     }else{
         if(arithmeticChain.indexOf('%') > 0){
-
+            /* This if() does not allow you to do more than enter two digits if we are looking for a percentage of a number.
+            The first digit is the percentage and the second is the number (e.g. 2%5=0.1).
+            The rest of the actions will be blocked until the user clicks the equal sign. */
         }else{
             switch (a) {
                 case '+':
