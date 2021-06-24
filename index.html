@@ -11,6 +11,7 @@
   </head>
   <body>
     <main>
+    <div id="on-off">
       <div class="display">
         <div class="settings up"><p id="chain"></p></div>
         <div class="settings down"><p id="current">0</p></div> 
@@ -32,11 +33,12 @@
         <div class="btn"><button onclick="getNum(2)">2</button></div>
         <div class="btn"><button onclick="getNum(3)">3</button></div>
         <div class="btn"><button onclick="push('+')">+</button></div>
-        <div class="btn bot_left"><button onclick="">+/-</button></div>
+        <div class="btn bot_left"><button onclick="onOff()">+/-</button></div>
         <div class="btn"><button id="0" onclick="getNum('0')">0</button></div>
         <div class="btn"><button onclick="getNum('.')">.</button></div>
         <div class="btn bot_right"><button onclick="result()">=</button></div>
       </div>
+    </div>
     </main>
     <script src="calc.js" async defer></script>
   </body>

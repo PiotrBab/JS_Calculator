@@ -5,6 +5,11 @@ let arithmeticChain = [];
 
 let test;
 
+function onOff(){
+    document.getElementById("on-off").style.display = "none";
+}
+
+
 function getNum(a){
     if(storeDisplayNum.length < 14){
         if(arithmeticChain.indexOf('%') > 0 
