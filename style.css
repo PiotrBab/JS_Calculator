@@ -122,21 +122,7 @@ main{
 
 /* ---Media--- */
 
-@media only screen and (max-width: 850px), (max-height: 850px){
-    #chain{
-        font-size: 10px;
-        height: 35px;
-        line-height: 35px;
-    }
-
-    #current{
-        font-size: 35px;
-        height: 50px;
-        line-height: 50px;
-    }
-  }
-
-@media only screen and (max-width: 600px), (max-height: 600px){
+@media only screen and (max-width: 600px), screen and (max-height: 600px){
     #chain{
         font-size: 10px;
         height: 25px;
@@ -147,6 +133,20 @@ main{
         font-size: 35px;
         height: 40px;
         line-height: 40px;
+    }
+  }
+
+@media only screen and (max-width: 850px), screen and (max-height: 850px){
+    #chain{
+        font-size: 10px;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    #current{
+        font-size: 35px;
+        height: 50px;
+        line-height: 50px;
     }
   }
 
