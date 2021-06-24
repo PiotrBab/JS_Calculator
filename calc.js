@@ -140,7 +140,8 @@ function result(){
     document.getElementById("chain").innerHTML= `${arithmeticChain.join('')}=`;
     let doMath = sum(arithmeticChain);
     document.getElementById("current").innerHTML= doMath;
-    storedNumber = doMath
+    storedNumber = doMath;
+    storeDisplayNum = '';
     arithmeticChain = [];
 }
 
