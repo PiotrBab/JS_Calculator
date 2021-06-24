@@ -141,7 +141,6 @@ function result(){
     let doMath = sum(arithmeticChain);
     document.getElementById("current").innerHTML= doMath;
     storedNumber = doMath;
-    storedNumber = '';
     storeDisplayNum = '';
     arithmeticChain = [];
 }
