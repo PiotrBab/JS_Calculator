@@ -41,7 +41,7 @@ main{
     display: grid;
     justify-content: flex-end;
     align-self: center;
-    border: 5px solid rgba(13, 30, 58, 0);
+    border: 5px solid transparent;
     border-radius: 20px;
     box-shadow: inset 0px 0px 20px 4px rgb(13, 27, 53);
     background-color: rgba(13, 27, 53, 0.096);

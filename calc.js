@@ -59,6 +59,15 @@ function sum(arr){
 }
 /*-----------------------------------------------------------------------------------------------------*/
 
+function change(){
+    if(storedNumber > 0){
+        storedNumber *= -1;
+        document.getElementById("current").innerHTML= storedNumber;
+    }else if(storedNumber < 0){
+        storedNumber *= -1;
+        document.getElementById("current").innerHTML= storedNumber;
+    }
+}
 
 function push(a){
     if(storedNumber == undefined ){
