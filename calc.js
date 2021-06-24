@@ -3,10 +3,16 @@ let storedNumber;
 
 let arithmeticChain = [];
 
+let test;
+
 function getNum(a){
     if(storeDisplayNum.length < 14){
-        storeDisplayNum += a;
-        document.getElementById("current").innerHTML= storeDisplayNum;
+        if(arithmeticChain.indexOf('%') > 0 
+        && arithmeticChain.length > 2){
+        }else{
+            storeDisplayNum += a;
+            document.getElementById("current").innerHTML= storeDisplayNum;
+        }
     }
     storedNumber = Number(storeDisplayNum);
 }
@@ -34,78 +40,74 @@ function sum(arr){
             math.splice(math.indexOf('+')-1,3,calc);
         }
 
-        while (math.indexOf('-') > 0 ){
-            let calc = math[math.indexOf('-')-1] - math[math.indexOf('-')+1]
-            math.splice(math.indexOf('-')-1,3,calc);
-        }
-
         while (math.indexOf('%') > 0 ){
-            let calc = (math[math.indexOf('%')-1]/100) * math[math.indexOf('&')+1]
+            let calc = (math[math.indexOf('%')-1]/100) * math[math.indexOf('%')+1]
             math.splice(math.indexOf('%')-1,3,calc);
         }
-
-
-
     return Number(math[0].toFixed(4));
 }
 
 function push(a){
-    if(storedNumber == undefined){
+    if(storedNumber == undefined ){
     }else{
-        switch (a) {
-            case '+':
-                arithmeticChain.push(storedNumber);
-                arithmeticChain.push('+')
-    
-                storeDisplayNum = '';
-                storedNumber = 0;
-                document.getElementById("current").innerHTML= '';
-                document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                break;
-    
-            case '-':
-                arithmeticChain.push(storedNumber);
-                arithmeticChain.push('-')
-    
-                storeDisplayNum = '';
-                storedNumber = 0;
-                document.getElementById("current").innerHTML= '';
-                document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                break;
-    
-            case '*':
-                arithmeticChain.push(storedNumber);
-                arithmeticChain.push('*')
-    
-                storeDisplayNum = '';
-                storedNumber = 0;
-                document.getElementById("current").innerHTML= '';
-                document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                break;
-    
-            case '/':
-                arithmeticChain.push(storedNumber);
-                arithmeticChain.push('/')
-    
-                storeDisplayNum = '';
-                storedNumber = 0;
-                document.getElementById("current").innerHTML= '';
-                document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                break;
+        if(arithmeticChain.indexOf('%') > 0){
 
-            case '%':
-                arithmeticChain.push(storedNumber);
-                arithmeticChain.push('%')
-    
-                storeDisplayNum = '';
-                storedNumber = 0;
-                document.getElementById("current").innerHTML= '';
-                document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                break;
+        }else{
+            switch (a) {
+                case '+':
+                    arithmeticChain.push(storedNumber);
+                    arithmeticChain.push('+')
         
-            default:
-                break;
-        }
+                    storeDisplayNum = '';
+                    storedNumber = 0;
+                    document.getElementById("current").innerHTML= '';
+                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                    break;
+        
+                case '-':
+                    arithmeticChain.push(storedNumber);
+                    arithmeticChain.push('-')
+        
+                    storeDisplayNum = '';
+                    storedNumber = 0;
+                    document.getElementById("current").innerHTML= '';
+                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                    break;
+        
+                case '*':
+                    arithmeticChain.push(storedNumber);
+                    arithmeticChain.push('*')
+        
+                    storeDisplayNum = '';
+                    storedNumber = 0;
+                    document.getElementById("current").innerHTML= '';
+                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                    break;
+        
+                case '/':
+                    arithmeticChain.push(storedNumber);
+                    arithmeticChain.push('/')
+        
+                    storeDisplayNum = '';
+                    storedNumber = 0;
+                    document.getElementById("current").innerHTML= '';
+                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                    break;
+    
+                case '%':
+                    arithmeticChain.push(storedNumber);
+                    arithmeticChain.push('%')
+        
+                    storeDisplayNum = '';
+                    storedNumber = 0;
+                    document.getElementById("current").innerHTML= '';
+                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                    break;
+            
+                default:
+                    break;
+            } 
+        } 
     } 
 }
 
