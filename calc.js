@@ -142,6 +142,7 @@ function result(){
     document.getElementById("current").innerHTML= doMath;
     storedNumber = doMath;
     storedNumber = '';
+    storeDisplayNum = '';
     arithmeticChain = [];
 }
 
