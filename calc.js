@@ -67,7 +67,7 @@ function push(a){
     if(storedNumber == undefined ){
     }else{
         if(arithmeticChain.indexOf('%') < 0){
-            if(storeDisplayNum != ''){
+            if(storedNumber != ''){
                 switch (a) {
                     case '+':
                         arithmeticChain.push(storedNumber);
@@ -122,7 +122,7 @@ function push(a){
                     default:
                         break;
                 }
-            } 
+            }  
         }
     } 
 }
@@ -137,9 +137,8 @@ function result(){
         storeDisplayNum = '';
         arithmeticChain = [];
     }
-    
 }
-
+    
 function clearAll(){
     document.getElementById("chain").innerHTML= '';
     document.getElementById("current").innerHTML= '';
