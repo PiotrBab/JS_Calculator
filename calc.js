@@ -69,7 +69,7 @@ function push(a){
         if(arithmeticChain.indexOf('%') < 0){
             if(storedNumber != ''){
                 switch (a) {
-                    case '+':
+                    case '+':      
                         arithmeticChain.push(storedNumber);
                         arithmeticChain.push('+')
             
@@ -122,7 +122,11 @@ function push(a){
                     default:
                         break;
                 }
-            }  
+            }else{
+                    arithmeticChain.pop();
+                    arithmeticChain.push(a);
+                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
+            } 
         }
     } 
 }
