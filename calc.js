@@ -23,7 +23,6 @@ function getNum(a){
 /*Function sum() allows you to perform calculations entered by the user.*/
 function sum(arr){
     let math = [...arr];
-
          while (math.indexOf('/') > 0 ){
             let calc = math[math.indexOf('/')-1] / math[math.indexOf('/')+1]
             math.splice(math.indexOf('/')-1,3,calc);
@@ -64,12 +63,15 @@ function change(){
 }
 /*-----------------------------------------------------------------------------------------------------*/
 
-
+/* The push() function inputs a given number and an arithmetic operation. */
 function push(a){
     if(storedNumber != undefined ){
-        if(arithmeticChain.indexOf('%') < 0){
-            if(storedNumber != ''){
-                switch (a) {
+        if(arithmeticChain.indexOf('%') < 0){/*This part of the if() condition does not allow another
+        arithmetic operation to be entered if the user starts counting a percentage of a number.*/
+            if(storedNumber != ''){/* This part of the if() condition does not allow another arithmetic
+            operation to be entered if the user has not entered any numbers.*/
+                switch (a) {/*This switch checks what arithmetic operation the user wants to perform.
+                It pushes in the entered number and arithmetic character.*/
                     case '+':      
                         arithmeticChain.push(storedNumber);
                         arithmeticChain.push('+')
@@ -123,7 +125,7 @@ function push(a){
                     default:
                         break;
                 }
-            }else{
+            }else{/*This part of the if() condition allows the user to change the mathematical operation entered.*/
                     arithmeticChain.pop();
                     arithmeticChain.push(a);
                     document.getElementById("chain").innerHTML= arithmeticChain.join('');
@@ -131,10 +133,13 @@ function push(a){
         }
     } 
 }
+/*-----------------------------------------------------------------------------------------------------*/
 
+/*The result() function returns the result from our action.*/
 function result(){
-    if(arithmeticChain.length != 0){
-        if( storeDisplayNum == ''){
+    if(arithmeticChain.length != 0){/*This if() checks if the user has entered an action. If not, the 
+    function will not execute.*/
+        if(storeDisplayNum == ''){/*This if() checks if the user has entered at least one arithmetic operation and a second digit.If not, the "=" character returns the first digit entered.*/
             document.getElementById("chain").innerHTML= `${arithmeticChain[0]}=`;
             document.getElementById("current").innerHTML= arithmeticChain[0];
             storedNumber = arithmeticChain[0];
@@ -149,10 +154,11 @@ function result(){
             storeDisplayNum = '';
             arithmeticChain = [];
         }
-        
     }
 }
-    
+/*-----------------------------------------------------------------------------------------------------*/
+
+/*The clearAll() function restarts the data entered into the calculator.*/
 function clearAll(){
     document.getElementById("chain").innerHTML= '';
     document.getElementById("current").innerHTML= '';
@@ -160,11 +166,14 @@ function clearAll(){
     storedNumber = undefined;
     arithmeticChain = [];
 }
+/*-----------------------------------------------------------------------------------------------------*/
 
+/*The clearLast() function restarts the last number before using an arithmetic operation.*/
 function clearLast(){
     document.getElementById("current").innerHTML= '';
     storeDisplayNum = '';
     storedNumber = '';
 }
+/*-----------------------------------------------------------------------------------------------------*/
 
 
