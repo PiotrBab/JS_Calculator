@@ -21,8 +21,7 @@ main{
     align-items: center;
 }
 
-/* ---Display--- */
-
+/*---Display---*/
 .display{
     display: grid;
     grid-template-columns: repeat(1,40vh);
@@ -36,6 +35,7 @@ main{
     align-items: center;
 }
 
+/*---Describes the general settings of the input field and the digit storage field.---*/
 .settings{
     width: 95%;
     display: grid;
@@ -48,10 +48,7 @@ main{
     box-sizing: border-box;
 }
 
-.bott{
-    margin-bottom: 10px;
-}
-
+/*---Describes the field for entering digits into the calcualtor---*/
 #chain{
     font-size: 10px;
     color: rgba(255, 255, 255, 0.418);
@@ -61,6 +58,7 @@ main{
     font-weight: 800;
 }
 
+/*---Describes the field for entering digits into the calcualtor---*/
 #current{
     font-size: 45px;
     height: 70px;
@@ -72,8 +70,13 @@ main{
     display: border-box;
 }
 
-/* ------------------------------------------------------------------------------------------------ */
+/*---Moves the digit input field away from the bottom edge.---*/
+.bott{
+    margin-bottom: 10px;
+}
+/*------------------------------------------------------------------------------------------------*/
 
+/*---Bottom part of Calculator---*/
 #core{
     display: grid;
     width: 40vh;
@@ -85,6 +88,7 @@ main{
     box-shadow:inset 0px 0px 20px 4px rgb(13, 27, 53) , 5px 5px 15px 5px rgb(147, 97, 201), -10px -7px 27px 1px rgb(49, 107, 207), 5px 5px 15px 5px rgb(151, 102, 204), 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
+/*---Divs holds buttons---*/
 .btn{
     display: flex;
     justify-content: center;
@@ -98,6 +102,7 @@ main{
     box-sizing: border-box;
 }
 
+/*---Buttons---*/
 .btn button{
     background: none;
 	color: inherit;
@@ -109,6 +114,7 @@ main{
     height: 100%;
 }
 
+/*---Rounding off the right bottom left button---*/
 .bot_left{
     border-radius: 5px 5px 5px 20px;
 }
@@ -117,11 +123,12 @@ main{
     border-radius: 5px 5px 20px 5px;
 }
 
+/*---The effect of pressing a buttons---*/
 .btn:active{
     box-shadow:inset 0px 0px 20px 4px rgb(13, 27, 53)
 }
 
-/* ---Media--- */
+/*---Media---*/
   @media (max-height: 850px){
     #chain{
         font-size: 10px;
@@ -190,6 +197,4 @@ main{
         font-size: 12px;
     }
   }
-
-
-/* ------------------------------------------------------------------------------------------------ */
+/*------------------------------------------------------------------------------------------------*/
