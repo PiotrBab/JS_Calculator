@@ -69,6 +69,7 @@ main{
     margin-left: 20px;
     font-weight: 600;
     max-width: 100%;
+    display: border-box;
 }
 
 /* ------------------------------------------------------------------------------------------------ */
@@ -121,33 +122,74 @@ main{
 }
 
 /* ---Media--- */
-
-@media only screen and (max-width: 600px), screen and (max-height: 600px){
+  @media (max-height: 850px){
     #chain{
         font-size: 10px;
-        height: 25px;
-        line-height: 25px;
+        height: 30px;
+        line-height: 30px;
+        margin-right: 12px;
     }
 
     #current{
-        font-size: 35px;
-        height: 40px;
-        line-height: 40px;
+        font-size: 25px;
+        height: 45px;
+        line-height: 45px;
+        margin-right: 12px;
     }
   }
 
-@media only screen and (max-width: 850px), screen and (max-height: 850px){
+@media (max-height: 670px){
     #chain{
         font-size: 10px;
+        height: 20px;
+        line-height: 20px;
+        margin-right: 10px;
+    }
+
+    #current{
+        font-size: 25px;
         height: 35px;
         line-height: 35px;
+        margin-right: 10px;
+    }
+  }
+
+  @media screen and (max-height: 500px){
+    #chain{
+        font-size: 10px;
+        height: 15px;
+        line-height: 15px;
     }
 
     #current{
-        font-size: 35px;
-        height: 50px;
-        line-height: 50px;
+        font-size: 18px;
+        height: 30px;
+        line-height: 30px;
+        padding-right: 2px;
     }
   }
+
+  @media screen and (max-height: 390px){
+    #chain{
+        font-size: 8px;
+        height: 10px;
+        line-height: 10px;
+        padding-right: 2px;
+        margin-right: 5px;
+    }
+
+    #current{
+        font-size: 15px;
+        height: 20px;
+        line-height: 20px;
+        padding-right: 2px;
+        margin-right: 5px;
+    }
+
+    .btn{
+        font-size: 12px;
+    }
+  }
+
 
 /* ------------------------------------------------------------------------------------------------ */

@@ -3,12 +3,6 @@ let storedNumber;
 
 let arithmeticChain = [];
 
-let test;
-
-function onOff(){
-    document.getElementById("on-off").style.display = "none";
-}
-
 /*Function getNum collects user input and displays it in the calculator. Additionally, the entered text
 is converted into numbers and assigned to the storedNumber variable.*/
 function getNum(a){
@@ -72,77 +66,78 @@ function change(){
 function push(a){
     if(storedNumber == undefined ){
     }else{
-        if(arithmeticChain.indexOf('%') > 0){
-            /* This if() does not allow you to do more than enter two digits if we are looking for a percentage of a number.
-            The first digit is the percentage and the second is the number (e.g. 2%5=0.1).
-            The rest of the actions will be blocked until the user clicks the equal sign. */
-        }else{
-            switch (a) {
-                case '+':
-                    arithmeticChain.push(storedNumber);
-                    arithmeticChain.push('+')
-        
-                    storeDisplayNum = '';
-                    storedNumber = 0;
-                    document.getElementById("current").innerHTML= '';
-                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                    break;
-        
-                case '-':
-                    arithmeticChain.push(storedNumber);
-                    arithmeticChain.push('-')
-        
-                    storeDisplayNum = '';
-                    storedNumber = 0;
-                    document.getElementById("current").innerHTML= '';
-                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                    break;
-        
-                case '*':
-                    arithmeticChain.push(storedNumber);
-                    arithmeticChain.push('*')
-        
-                    storeDisplayNum = '';
-                    storedNumber = 0;
-                    document.getElementById("current").innerHTML= '';
-                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                    break;
-        
-                case '/':
-                    arithmeticChain.push(storedNumber);
-                    arithmeticChain.push('/')
-        
-                    storeDisplayNum = '';
-                    storedNumber = 0;
-                    document.getElementById("current").innerHTML= '';
-                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                    break;
-    
-                case '%':
-                    arithmeticChain.push(storedNumber);
-                    arithmeticChain.push('%')
-        
-                    storeDisplayNum = '';
-                    storedNumber = 0;
-                    document.getElementById("current").innerHTML= '';
-                    document.getElementById("chain").innerHTML= arithmeticChain.join('');
-                    break;
+        if(arithmeticChain.indexOf('%') < 0){
+            if(storeDisplayNum != ''){
+                switch (a) {
+                    case '+':
+                        arithmeticChain.push(storedNumber);
+                        arithmeticChain.push('+')
             
-                default:
-                    break;
+                        storeDisplayNum = '';
+                        storedNumber = 0;
+                        document.getElementById("current").innerHTML= '';
+                        document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                        break;
+            
+                    case '-':
+                        arithmeticChain.push(storedNumber);
+                        arithmeticChain.push('-')
+            
+                        storeDisplayNum = '';
+                        storedNumber = 0;
+                        document.getElementById("current").innerHTML= '';
+                        document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                        break;
+            
+                    case '*':
+                        arithmeticChain.push(storedNumber);
+                        arithmeticChain.push('*')
+            
+                        storeDisplayNum = '';
+                        storedNumber = 0;
+                        document.getElementById("current").innerHTML= '';
+                        document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                        break;
+            
+                    case '/':
+                        arithmeticChain.push(storedNumber);
+                        arithmeticChain.push('/')
+            
+                        storeDisplayNum = '';
+                        storedNumber = 0;
+                        document.getElementById("current").innerHTML= '';
+                        document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                        break;
+        
+                    case '%':
+                        arithmeticChain.push(storedNumber);
+                        arithmeticChain.push('%')
+            
+                        storeDisplayNum = '';
+                        storedNumber = 0;
+                        document.getElementById("current").innerHTML= '';
+                        document.getElementById("chain").innerHTML= arithmeticChain.join('');
+                        break;
+                
+                    default:
+                        break;
+                }
             } 
-        } 
+        }
     } 
 }
 
 function result(){
-    arithmeticChain.push(storedNumber);
-    document.getElementById("chain").innerHTML= `${arithmeticChain.join('')}=`;
-    let doMath = sum(arithmeticChain);
-    document.getElementById("current").innerHTML= doMath;
-    storedNumber = doMath;
-    storeDisplayNum = '';
-    arithmeticChain = [];
+    if(arithmeticChain.length != 0){
+        arithmeticChain.push(storedNumber);
+        document.getElementById("chain").innerHTML= `${arithmeticChain.join('')}=`;
+        let doMath = sum(arithmeticChain);
+        document.getElementById("current").innerHTML= doMath;
+        storedNumber = doMath;
+        storeDisplayNum = '';
+        arithmeticChain = [];
+    }
+    
 }
 
 function clearAll(){
