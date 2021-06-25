@@ -3,8 +3,7 @@ let storedNumber;
 
 let arithmeticChain = [];
 
-/*Function getNum collects user input and displays it in the calculator. Additionally, the entered text
-is converted into numbers and assigned to the storedNumber variable.*/
+/*Function getNum() collects user input and displays it in the calculator.*/
 function getNum(a){
     if(storeDisplayNum.length < 14){ /*This if() does not allow you to enter a digit longer than 14 characters.*/
         if(arithmeticChain.indexOf('%') > 0 
@@ -21,7 +20,7 @@ function getNum(a){
 }
 /*-----------------------------------------------------------------------------------------------------*/
 
-/*Function sum allows you to perform calculations entered by the user.*/
+/*Function sum() allows you to perform calculations entered by the user.*/
 function sum(arr){
     let math = [...arr];
 
@@ -53,6 +52,7 @@ function sum(arr){
 }
 /*-----------------------------------------------------------------------------------------------------*/
 
+/*Function change() allows you to perform calculations entered by the user.*/
 function change(){
     if(storedNumber > 0){
         storedNumber *= -1;
@@ -62,10 +62,11 @@ function change(){
         document.getElementById("current").innerHTML= storedNumber;
     }
 }
+/*-----------------------------------------------------------------------------------------------------*/
+
 
 function push(a){
-    if(storedNumber == undefined ){
-    }else{
+    if(storedNumber != undefined ){
         if(arithmeticChain.indexOf('%') < 0){
             if(storedNumber != ''){
                 switch (a) {
@@ -133,13 +134,22 @@ function push(a){
 
 function result(){
     if(arithmeticChain.length != 0){
-        arithmeticChain.push(storedNumber);
-        document.getElementById("chain").innerHTML= `${arithmeticChain.join('')}=`;
-        let doMath = sum(arithmeticChain);
-        document.getElementById("current").innerHTML= doMath;
-        storedNumber = doMath;
-        storeDisplayNum = '';
-        arithmeticChain = [];
+        if( storeDisplayNum == ''){
+            document.getElementById("chain").innerHTML= `${arithmeticChain[0]}=`;
+            document.getElementById("current").innerHTML= arithmeticChain[0];
+            storedNumber = arithmeticChain[0];
+            storeDisplayNum = '';
+            arithmeticChain = [];
+        }else{
+            arithmeticChain.push(storedNumber);
+            document.getElementById("chain").innerHTML= `${arithmeticChain.join('')}=`;
+            let doMath = sum(arithmeticChain);
+            document.getElementById("current").innerHTML= doMath;
+            storedNumber = doMath;
+            storeDisplayNum = '';
+            arithmeticChain = [];
+        }
+        
     }
 }
     
