@@ -20,46 +20,41 @@ function getNum(a){
 }
 /*-----------------------------------------------------------------------------------------------------*/
 
-/*Function sum() allows you to perform calculations entered by the user.*/
-function sum(arr){
+/*Function evaluate() allows you to perform calculations entered by the user.*/
+function evaluate(arr){
     let math = [...arr];
-         while (math.indexOf('/') > 0 ){
-            let calc = math[math.indexOf('/')-1] / math[math.indexOf('/')+1]
-            math.splice(math.indexOf('/')-1,3,calc);
-        }
+    while (math.indexOf('/') > 0 ){
+        let calc = math[math.indexOf('/')-1] / math[math.indexOf('/')+1]
+        math.splice(math.indexOf('/')-1,3,calc);
+    }
 
-        while (math.indexOf('*') > 0 ){
-            let calc = math[math.indexOf('*')-1] * math[math.indexOf('*')+1]
-            math.splice(math.indexOf('*')-1,3,calc) 
-        }
+    while (math.indexOf('*') > 0 ){
+        let calc = math[math.indexOf('*')-1] * math[math.indexOf('*')+1]
+        math.splice(math.indexOf('*')-1,3,calc) 
+    }
 
-        while (math.indexOf('-') > 0 ){
-            let calc = math[math.indexOf('-')-1] - math[math.indexOf('-')+1]
-            math.splice(math.indexOf('-')-1,3,calc);
-        }
+    while (math.indexOf('-') > 0 ){
+        let calc = math[math.indexOf('-')-1] - math[math.indexOf('-')+1]
+        math.splice(math.indexOf('-')-1,3,calc);
+    }
 
-        while (math.indexOf('+') > 0 ){
-            let calc = math[math.indexOf('+')-1] + math[math.indexOf('+')+1]
-            math.splice(math.indexOf('+')-1,3,calc);
-        }
+    while (math.indexOf('+') > 0 ){
+        let calc = math[math.indexOf('+')-1] + math[math.indexOf('+')+1]
+        math.splice(math.indexOf('+')-1,3,calc);
+    }
 
-        while (math.indexOf('%') > 0 ){
-            let calc = (math[math.indexOf('%')-1]/100) * math[math.indexOf('%')+1]
-            math.splice(math.indexOf('%')-1,3,calc);
-        }
+    while (math.indexOf('%') > 0 ){
+        let calc = (math[math.indexOf('%')-1]/100) * math[math.indexOf('%')+1]
+        math.splice(math.indexOf('%')-1,3,calc);
+    }
     return Number(math[0].toFixed(4));
 }
 /*-----------------------------------------------------------------------------------------------------*/
 
 /*Function change() allows you to perform calculations entered by the user.*/
 function change(){
-    if(storedNumber > 0){
-        storedNumber *= -1;
-        document.getElementById("current").innerHTML= storedNumber;
-    }else if(storedNumber < 0){
-        storedNumber *= -1;
-        document.getElementById("current").innerHTML= storedNumber;
-    }
+    storedNumber *= -1;
+    document.getElementById("current").innerHTML= storedNumber;
 }
 /*-----------------------------------------------------------------------------------------------------*/
 
@@ -148,7 +143,7 @@ function result(){
         }else{
             arithmeticChain.push(storedNumber);
             document.getElementById("chain").innerHTML= `${arithmeticChain.join('')}=`;
-            let doMath = sum(arithmeticChain);
+            let doMath = evaluate(arithmeticChain);
             document.getElementById("current").innerHTML= doMath;
             storedNumber = doMath;
             storeDisplayNum = '';
