@@ -134,10 +134,22 @@ function push(a){
 function result(){
     if(arithmeticChain.length != 0){/*This if() checks if the user has entered an action. If not, the 
     function will not execute.*/
-        if(storeDisplayNum == ''){/*This if() checks if the user has entered at least one arithmetic operation and a second digit.If not, the "=" character returns the first digit entered.*/
-            document.getElementById("chain").innerHTML= `${arithmeticChain[0]}=`;
+        if(arithmeticChain[arithmeticChain.length-1] == '%'
+        && typeof storeDisplayNum == 'string'){
+            arithmeticChain[0] = arithmeticChain[0]/100; 
+            document.getElementById("chain").innerHTML= `${arithmeticChain.join('')}=`;
             document.getElementById("current").innerHTML= arithmeticChain[0];
             storedNumber = arithmeticChain[0];
+            storeDisplayNum = '';
+            arithmeticChain = []; 
+        }
+
+        if(storedNumber == 0){
+            arithmeticChain.pop();
+            document.getElementById("chain").innerHTML= `${arithmeticChain.join('')}=`;
+            let doMath = evaluate(arithmeticChain);
+            document.getElementById("current").innerHTML= doMath;
+            storedNumber = doMath;
             storeDisplayNum = '';
             arithmeticChain = [];
         }else{
@@ -149,6 +161,10 @@ function result(){
             storeDisplayNum = '';
             arithmeticChain = [];
         }
+    }else{
+        storedNumber = '';
+        document.getElementById("chain").innerHTML= `${storedNumber}=`;
+        document.getElementById("current").innerHTML= storedNumber;
     }
 }
 /*-----------------------------------------------------------------------------------------------------*/
@@ -167,7 +183,7 @@ function clearAll(){
 function clearLast(){
     document.getElementById("current").innerHTML= '';
     storeDisplayNum = '';
-    storedNumber = '';
+    storedNumber = undefined;
 }
 /*-----------------------------------------------------------------------------------------------------*/
 
