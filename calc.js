@@ -162,9 +162,10 @@ function result(){
             arithmeticChain = [];
         }
     }else{
-        storedNumber = '';
-        document.getElementById("chain").innerHTML= `${storedNumber}=`;
-        document.getElementById("current").innerHTML= storedNumber;
+        document.getElementById("chain").innerHTML= `${storeDisplayNum}=`;
+        document.getElementById("current").innerHTML= storeDisplayNum;
+        storedNumber = Number(storeDisplayNum);
+        storeDisplayNum = '';
     }
 }
 /*-----------------------------------------------------------------------------------------------------*/
