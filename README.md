@@ -7,6 +7,8 @@
     <p>The computation works on the principle of eq: <b><i>3%5=0.03</i></b>. It calculates the percentage of a given number right away, without any additional calculations required by the user.</p>
 </div>
 
+<br />
+
 <div align="center">
     <img src="https://i.imgur.com/QVB2Z9O.png">
 </div>
