@@ -32,6 +32,7 @@ function evaluate(arr) {
     }
 
     while (math.indexOf('+') > 0) {
+        console.log(math)
         let calc = math[math.indexOf('+') - 1] + math[math.indexOf('+') + 1]
         math.splice(math.indexOf('+') - 1, 3, calc);
     }
@@ -48,8 +49,8 @@ function evaluate(arr) {
 function addToArr(a) {
     if (storedNumber != undefined) {
         /*Converts a percentage into a decimal number.*/
-        if (arithmeticChain[1] === '%') {
-            result()
+        if (arithmeticChain[1] === '%' && arithmeticChain.length < 1) {
+                result()
         } else {
             /*Does not allow to enter an operation if no number is given*/
             if (storedNumber != '') {
@@ -63,7 +64,7 @@ function addToArr(a) {
     }
 }
 
-/*The result() function returns the result from our action.*/
+/*Function returns the result from our aritchemtic operation.*/
 function result() {
     if (arithmeticChain.length != 0) {/*User has to enter an action. If not, the function will not execute.*/
         if (arithmeticChain[1] === '%') {
