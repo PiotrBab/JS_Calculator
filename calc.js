@@ -13,6 +13,8 @@ function getNum(a) {
     storedNumber = Number(storeDisplayNum);
 }
 
+function test(arithmeticSign)
+
 /*Function evaluate() allows you to perform calculations entered by the user.*/
 function evaluate(arr) {
     let math = [...arr];
@@ -32,7 +34,6 @@ function evaluate(arr) {
     }
 
     while (math.indexOf('+') > 0) {
-        console.log(math)
         let calc = math[math.indexOf('+') - 1] + math[math.indexOf('+') + 1]
         math.splice(math.indexOf('+') - 1, 3, calc);
     }
@@ -50,39 +51,18 @@ function addToArr(a) {
     if (storedNumber != undefined) {
         /*Converts a percentage into a decimal number.*/
         if (arithmeticChain[1] === '%' && arithmeticChain.length < 1) {
-                result()
+            result()
         } else {
             /*Does not allow to enter an operation if no number is given*/
             if (storedNumber != '') {
                 arithmeticOperations(a);
-            } else {/*Allows you to change an arithmetic operation.*/
+                /*Allows you to change an arithmetic operation.*/
+            } else {
                 arithmeticChain.pop();
                 arithmeticChain.push(a);
                 document.getElementById("chain").innerHTML = arithmeticChain.join('');
             }
         }
-    }
-}
-
-/*Function returns the result from our aritchemtic operation.*/
-function result() {
-    if (arithmeticChain.length != 0) {/*User has to enter an action. If not, the function will not execute.*/
-        if (arithmeticChain[1] === '%') {
-            arithmeticChain.push(storedNumber);
-            preperData();
-        }
-        if (storedNumber == 0) {
-            arithmeticChain.pop();
-            preperData();
-        } else {
-            arithmeticChain.push(storedNumber);
-            preperData();
-        }
-    } else {
-        document.getElementById("chain").innerHTML = `${storeDisplayNum}=`;
-        document.getElementById("current").innerHTML = storeDisplayNum;
-        storedNumber = Number(storeDisplayNum);
-        storeDisplayNum = '';
     }
 }
 
@@ -99,6 +79,29 @@ function arithmeticOperations(operationSign) {
         storedNumber = 0;
         document.getElementById("current").innerHTML = '';
         document.getElementById("chain").innerHTML = arithmeticChain.join('');
+    }
+}
+
+/*Function returns the result from our aritchemtic operation.*/
+function result() {
+    /*User has to enter an aritchemtical operation. If not, the function will not execute.*/
+    if (arithmeticChain.length != 0) {
+        if (arithmeticChain[1] === '%') {
+            arithmeticChain.push(storedNumber);
+            preperData();
+        }
+        if (storedNumber == 0) {
+            arithmeticChain.pop();
+            preperData();
+        } else {
+            arithmeticChain.push(storedNumber);
+            preperData();
+        }
+    } else {
+        document.getElementById("chain").innerHTML = `${storeDisplayNum}=`;
+        document.getElementById("current").innerHTML = storeDisplayNum;
+        storedNumber = Number(storeDisplayNum);
+        storeDisplayNum = '';
     }
 }
 
