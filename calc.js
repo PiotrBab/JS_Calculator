@@ -16,7 +16,6 @@ function getNum(a) {
 /*Function evaluate() allows you to perform calculations entered by the user.*/
 function evaluate(arr) {
     let math = [...arr];
-    console.log(math)
     while (math.indexOf('/') > 0) {
         let calc = math[math.indexOf('/') - 1] / math[math.indexOf('/') + 1]
         math.splice(math.indexOf('/') - 1, 3, calc);
