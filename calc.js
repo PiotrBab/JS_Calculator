@@ -13,36 +13,26 @@ function getNum(a) {
     storedNumber = Number(storeDisplayNum);
 }
 
-function test(arithmeticSign)
-
 /*Function evaluate() allows you to perform calculations entered by the user.*/
 function evaluate(arr) {
     let math = [...arr];
-    while (math.indexOf('/') > 0) {
-        let calc = math[math.indexOf('/') - 1] / math[math.indexOf('/') + 1]
-        math.splice(math.indexOf('/') - 1, 3, calc);
+
+    while (math.length > 1) {
+        if (math.indexOf('/') > 0) {
+            let calc = math[math.indexOf('/') - 1] / math[math.indexOf('/') + 1]
+            math.splice(math.indexOf('/') - 1, 3, calc);
+        } else if (math.indexOf('*') > 0) {
+            let calc = math[math.indexOf('*') - 1] * math[math.indexOf('*') + 1]
+            math.splice(math.indexOf('*') - 1, 3, calc)
+        } else if (math.indexOf('-') > 0) {
+            let calc = math[math.indexOf('-') - 1] - math[math.indexOf('-') + 1]
+            math.splice(math.indexOf('-') - 1, 3, calc);
+        } else if (math.indexOf('+') > 0) {
+            let calc = math[math.indexOf('+') - 1] + math[math.indexOf('+') + 1]
+            math.splice(math.indexOf('+') - 1, 3, calc);
+        }
     }
 
-    while (math.indexOf('*') > 0) {
-        let calc = math[math.indexOf('*') - 1] * math[math.indexOf('*') + 1]
-        math.splice(math.indexOf('*') - 1, 3, calc)
-    }
-
-    while (math.indexOf('-') > 0) {
-        let calc = math[math.indexOf('-') - 1] - math[math.indexOf('-') + 1]
-        math.splice(math.indexOf('-') - 1, 3, calc);
-    }
-
-    while (math.indexOf('+') > 0) {
-        let calc = math[math.indexOf('+') - 1] + math[math.indexOf('+') + 1]
-        math.splice(math.indexOf('+') - 1, 3, calc);
-    }
-
-    if (math[1] === '%') {
-        let percent = math[0] / 100;
-        math = [];
-        math.push(percent);
-    }
     return Number(math[0].toFixed(4));
 }
 
@@ -90,6 +80,7 @@ function result() {
             arithmeticChain.push(storedNumber);
             preperData();
         }
+        
         if (storedNumber == 0) {
             arithmeticChain.pop();
             preperData();
