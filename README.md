@@ -3,8 +3,6 @@
 </div>
 <div align="center">
     <p>I would like to present to you a calculator that I made all by myself, through the design and ending with the JS logic.</p>
-    <With>I used the calculator in Windows 10 to choose the layout of the buttons, however the logic behind calculating the percentage of a given number is slightly different from the standard.</p>
-    <p>The computation works on the principle of eq: <b><i>3%5=0.03</i></b>. It calculates the percentage of a given number right away, without any additional calculations required by the user.</p>
 </div>
 
 <br />
